@@ -82,12 +82,31 @@ function SimpleWorkerServer(call) {
   this.getType = function() {
     return this.shared ? "SharedWorker" : "Worker";
   }
+  
+    /**
+   * Close Worker / port workers
+   */
+  this.close = function() {
+    if(!this.shared)
+    {
+      this.worker.close();
+    }
+    else
+    {
+      for(var e in this.ports)
+      {
+        this.ports[e].close();
+      }
+      this.ports = [];
+    }
+  }
 
 
   this.init(call);
 
   return {
     "getType" : function() { return current.getType(); },
+    "close" : function() { return current.close() },
     //"getPorts" : function() {return current.ports;},
     "onMessage" : function(func) { return current.onMessage(func); }
   }
