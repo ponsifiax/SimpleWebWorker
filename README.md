@@ -3,7 +3,7 @@ Simple web worker and shared worker
 
 Classes :
 - SimpleWorker : simplication for create worker
-- SimpleSharedWorker : simplication for create worker
+- SimpleSharedWorker : simplication for create shared worker
 - SimpleWorkerBack : simplication to worker
 
 ## SimpleWorker
