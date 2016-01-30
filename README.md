@@ -4,7 +4,7 @@ Simple web worker and shared worker
 Classes :
 - SimpleWorker : simplication for create worker
 - SimpleSharedWorker : simplication for create shared worker
-- SimpleWorkerBack : simplication to worker (worker or sharedworker)
+- SimpleWorkerServer : simplication to worker (worker or sharedworker)
 
 ## SimpleWorker
 ```
@@ -34,9 +34,9 @@ Classes :
   worker.postMessage("to back");
 ```
 
-## SimpleWorkerBack
+## SimpleWorkerServer
 ```
-var bws = new SimpleWorkerBack(function(args) {
+var bws = new SimpleWorkerServer(function(args) {
   this.postMessage(args); // send data to SimpleWorker or SimpleShareWorker (Front)
 });
 
@@ -54,13 +54,16 @@ sw.onMessage(function(message) { /* your code **/ });
 sw.onMessage(function(message) { /* your code **/ });
 ```
 
-### SimpleWorkerBack
+### SimpleWorkerServer
 
 ```
 
-var bws = new SimpleWorkerBack();
+var bws = new SimpleWorkerServer();
 
 bws.onMessage(function(message) { /* your code **/ });
 bws.onMessage(function(message) { /* your code **/ });
 ```
 
+TODO :
+- Close worker
+- Terminate worker
