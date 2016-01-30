@@ -7,7 +7,7 @@ Classes :
 - SimpleWorkerServer : simplication to worker (worker or sharedworker)
 
 ## SimpleWorker
-```
+``` javascript
   var sw = new SimpleWorker("/worker.js",
     function(data) {
         console.log(data); // worker "back" response
@@ -21,7 +21,7 @@ Classes :
 ```
 
 ## SimpleSharedWorker
-```
+``` javascript
   var sw = new SimpleSharedWorker("/worker.js",
     function(data) {
         console.log(data); // worker "back" response
@@ -35,7 +35,7 @@ Classes :
 ```
 
 ## SimpleWorkerServer
-```
+``` javascript
 var bws = new SimpleWorkerServer(function(args) {
   this.postMessage(args); // send data to SimpleWorker or SimpleShareWorker (Front)
 });
@@ -47,7 +47,7 @@ var bws = new SimpleWorkerServer(function(args) {
 
 ### SimpleWorker or SimpleSharedWorker
 
-```
+``` javascript
 var sw = new SimpleWorker("/worker.js");
 
 sw.onMessage(function(message) { /* your code **/ });
@@ -56,8 +56,7 @@ sw.onMessage(function(message) { /* your code **/ });
 
 ### SimpleWorkerServer
 
-```
-
+``` javascript
 var bws = new SimpleWorkerServer();
 
 bws.onMessage(function(message) { /* your code **/ });
