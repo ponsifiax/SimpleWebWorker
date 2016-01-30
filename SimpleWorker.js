@@ -35,16 +35,6 @@ function SimpleWorker(script, call, shared) {
   }
 
   /**
-   * Close Worker
-   */
-  this.close = function() {
-    if(this.shared)
-      this.onMessage(function() {return false;});
-    else
-      this.worker.close();
-  }
-
-  /**
    * Terminate Worker
    */
   this.terminate = function() {
@@ -110,7 +100,6 @@ function SimpleWorker(script, call, shared) {
   var self = this;
   return {
     "getType" : function() { return self.getType() },
-    "close" : function() { return self.close() },
     "terminate" : function() { return self.terminate() },
     "postMessage" : function() { return self.postMessage.apply(self, arguments); },
     "start" : function() { return self.startWorker(); },
