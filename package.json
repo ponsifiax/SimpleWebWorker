@@ -2,7 +2,7 @@
   "name": "simplewebworker",
   "version": "1.0.0",
   "description": "Simple web worker and shared worker",
-  "main": "SimpleWorker.js",
+  "main": "run-test.js",
   "directories": {
     "test": "test"
   },
@@ -14,8 +14,11 @@
     "phantomjs": "^1.9.19"
   },
   "scripts": {
-    "start": "node run-test.js",
-    "test": "mocha-phantomjs http://localhost:3000 -p node_modules/phantomjs/bin/phantomjs --ignore-ssl-errors=yes --ssl-protocol=tlsv1"
+    "start": "node run-test.js SimpleWebWorker &",
+    "stop": "killall -SIGINT SimpleWebWorker",
+    "pretest" : "npm start",
+    "test": "mocha-phantomjs http://localhost:3000 -p node_modules/phantomjs/bin/phantomjs --ignore-ssl-errors=yes --ssl-protocol=tlsv1",
+    "posttest": "npm stop"
   },
   "repository": {
     "type": "git",

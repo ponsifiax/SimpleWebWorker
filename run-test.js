@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+process.title = process.argv[2];
+
 app.use(express.static(__dirname + '/lib'));
 app.use(express.static(__dirname + '/test'));
 console.log(__dirname + '/test');
