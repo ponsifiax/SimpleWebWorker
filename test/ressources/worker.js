@@ -10,3 +10,7 @@ w.on("myEvent", function(msg) {
 w.on("myEvent2", function(msg) {
     this.post("myEvent2", msg);
 });
+
+w.on("close", function() {
+   return false; 
+});

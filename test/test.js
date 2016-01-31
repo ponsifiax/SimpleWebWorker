@@ -139,15 +139,21 @@ function t(worker)
             var sw = new worker("ressources/worker.js");
             sw.on("myEvent", function() {throw new Error("Worker not closed");});
             sw.start();
-            sw.postMessage("close");
             sw.terminate();
             sw.post("myEvent", "test");
             
             setTimeout(function() {done();}, 300);
         });
         
-        it("terminate", function() {
+        it("terminate", function(done) {
+            var sw = new worker("ressources/worker.js");
+            sw.on("myEvent", function() {throw new Error("Worker not closed");});
+            sw.start();
+            sw.post("close");
+            sw.terminate();
+            sw.post("myEvent", "test");
             
+            setTimeout(function() {done();}, 300);            
         });
 }
 describe("SimpleWorker", function() {
