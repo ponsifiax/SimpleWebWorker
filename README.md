@@ -96,7 +96,7 @@ bws.on("my event", function(message) {
 ```
 
 
-## Stop Worker or SimpleSharedWorker
+## Stop SimpleWorker or SimpleSharedWorker
 
 ### SimpleWorker
 ``` javascript
