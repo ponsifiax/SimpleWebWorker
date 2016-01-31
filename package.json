@@ -1,0 +1,29 @@
+{
+  "name": "simplewebworker",
+  "version": "1.0.0",
+  "description": "Simple web worker and shared worker",
+  "main": "SimpleWorker.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ponsifiax/SimpleWebWorker.git"
+  },
+  "keywords": [
+    "worker",
+    "sharedworker",
+    "shared"
+  ],
+  "author": "ponsifiax",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ponsifiax/SimpleWebWorker/issues"
+  },
+  "homepage": "https://github.com/ponsifiax/SimpleWebWorker#readme"
+}
