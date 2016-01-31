@@ -134,6 +134,21 @@ function t(worker)
             sw.start();
             sw.post("myEvent", msg);
         });
+        
+        it("close", function(done) {
+            var sw = new worker("ressources/worker.js");
+            sw.on("myEvent", function() {throw new Error("Worker not closed");});
+            sw.start();
+            sw.postMessage("close");
+            sw.terminate();
+            sw.post("myEvent", "test");
+            
+            setTimeout(function() {done();}, 300);
+        });
+        
+        it("terminate", function() {
+            
+        });
 }
 describe("SimpleWorker", function() {
     describe("Worker", function() {
