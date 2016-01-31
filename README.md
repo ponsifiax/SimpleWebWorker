@@ -36,6 +36,7 @@ Classes :
 
 ## SimpleWorkerServer
 ``` javascript
+importScripts('SimpleWorkerServer.js');
 var bws = new SimpleWorkerServer(function(data) {
   this.postMessage(data); // send data to SimpleWorker or SimpleShareWorker (Front)
 });

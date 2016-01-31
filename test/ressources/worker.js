@@ -1,5 +1,5 @@
 importScripts('../SimpleWorkerServer.js');
-var w = new SimpleWorkerServer(function(msg) {
+var w = new SimpleWorkerServer(function(msg) {1
     this.postMessage(msg);
 });
 
