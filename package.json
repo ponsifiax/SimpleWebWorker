@@ -6,10 +6,16 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "mocha-phantomjs": "^4.0.2",
+    "phantomjs": "^1.9.19"
+  },
   "scripts": {
-    "test": "mocha"
+    "start": "node run-test.js",
+    "test": "mocha-phantomjs http://localhost:3000 -p node_modules/phantomjs/bin/phantomjs --ignore-ssl-errors=yes --ssl-protocol=tlsv1"
   },
   "repository": {
     "type": "git",
