@@ -160,12 +160,71 @@ describe("SimpleWorker", function() {
     describe("Worker", function() {
         t(SimpleWorker);
         
-        // todo test specificity of worker
+        it("Worker not available", function(done) {
+            var tmp = Worker;
+            Worker = undefined;
+            var d = false;
+            try
+            {
+                var sw = new Worker("ressources/worker.js");
+            }
+            catch(e)
+            {
+                done();
+                d = e;
+            }
+
+            Worker = tmp;
+            if(!d)
+            {
+                throw new Error("Worker available ?");
+            }
+        });
     });
     
     describe("Shared Worker", function() {
         t(SimpleSharedWorker);
         
-        // todo test specificity of shared worker
+
+        it("SharedWorker not available", function(done) {
+            var tmp = SharedWorker;
+            SharedWorker = undefined;
+            var sw = new SimpleSharedWorker("ressources/worker.js");
+            SharedWorker = tmp;
+            if(sw.getType() === "Worker")
+            {
+                done();
+            }
+            else
+            {
+                throw new Error("SharedWorker available ?");
+            }
+        });
+
+        it("SharedWorker and Worker not available", function(done) {
+            var tmp = SharedWorker;
+            var tmpW = Worker;
+            SharedWorker = undefined;
+            Worker = undefined;
+            var d = false;
+            try
+            {
+                var sw = new SimpleSharedWorker("ressources/worker.js");
+            }
+            catch(e)
+            {
+                done();
+                d = e;
+            }
+
+            SharedWorker = tmp;
+            Worker = tmpW;
+
+            if(!d)
+            {
+                throw new Error("Worker available ?");
+            }
+        });
+
     });
 }) 
