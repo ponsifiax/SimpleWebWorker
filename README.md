@@ -6,6 +6,8 @@ Classes :
 - SimpleSharedWorker : simplication for create shared worker
 - SimpleWorkerServer : simplication to worker (worker or sharedworker)
 
+Nb : If you use SimpleSharedWorker but SharedWorker not available on browser we try to use SimpleWorker.
+
 ## SimpleWorker
 ``` javascript
   var sw = new SimpleWorker("/worker.js",
